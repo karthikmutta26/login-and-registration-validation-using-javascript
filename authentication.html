@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>validation</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+        background: url("https://media.istockphoto.com/id/1185382671/vector/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=3YwJa7lCw-cQ-hviINULUokL9lYU4RuGjMP_E_0N8E4=");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .box {
+        width: 250px;
+        background: transparent;
+        padding: 30px;
+        margin-left: 600px;
+        margin-top: 150px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        border-radius: 30px;
+      }
+      .inputbox input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid black;
+        letter-spacing: 2px;
+        outline: none;
+        background: transparent;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .submit input {
+        width: 100%;
+        border-radius: 25px;
+        height: 40px;
+        border: none;
+        transition: 0.3s;
+      }
+      .submit input:hover {
+        background-color: #7f85f0;
+        transform: translateY(-5px);
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body bgcolor="#52c77f">
+    <div class="box">
+      <center>
+        <form
+          method="post"
+          onsubmit="return validateform()"
+          action="tempr.html"
+        >
+          <h1>REGISTRATION</h1>
+          <div class="inputbox">
+            <input type="text" id="name" placeholder="USERNAME" />
+          </div>
+          <br />
+          <div class="inputbox">
+            <input type="password" id="password" placeholder="PASSWORD" />
+          </div>
+          <br />
+          <div class="inputbox">
+            <input
+              type="password"
+              id="cpassword"
+              placeholder="CONFIRM PASSWORD"
+            /><br />
+            <br />
+          </div>
+          <div class="inputbox">
+            <input type="number" id="phone" placeholder="PHONE NUMBER" />
+          </div>
+          <br />
+          <div class="submit">
+            <input type="submit" value="SUBMIT" />
+          </div>
+          <p>having an account ? <a href="login.html">login</a></p>
+        </form>
+      </center>
+    </div>
+    <script>
+      function validateform() {
+        var name = document.getElementById("name").value;
+        var password = document.getElementById("password").value;
+        var cpassword = document.getElementById("cpassword").value;
+        var phone = document.getElementById("phone").value;
+        if (name == "" || password == "" || password == "" || phone == "") {
+          alert("fill the above details ");
+          return false;
+        } else if (password.length < 8) {
+          alert("Password be at least 8 characters");
+          return false;
+        } else if (cpassword != password) {
+          alert("password and confirm password are not matching");
+          return false;
+        } else if (phone.length < 10 || phone.length > 10) {
+          alert("invalid phone number");
+          return false;
+        } else {
+          alert("Registration Successful");
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
